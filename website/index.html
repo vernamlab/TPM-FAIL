@@ -1,0 +1,311 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>TPM-FAIL Attack</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom fonts for this template -->
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+  <link href="https://fonts.googleapis.com/css?family=Aclonica&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Aclonica|Crushed&display=swap" rel="stylesheet">
+
+
+  <!-- Custom styles for this template -->
+  <link href="css/clean-blog.min.css" rel="stylesheet">
+
+</head>
+
+<body>
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+    <div class="container">
+
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        Menu
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#Attack">Attack</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#Finders">Who found it?</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#FAQ">FAQ</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+  <!-- Page Header -->
+  <header class="masthead">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="post-heading" style="padding:100px">
+      <div class="row">
+        <div class="col-12 col-lg-4"><div class="text-center">
+          <img class="img-fluid pb-2" style="filter: invert(48%) sepia(69%) saturate(2476%) hue-rotate(220deg) brightness(100%) contrast(139%);" width="200px" src="logo/TPM-Fail.svg" >
+        </div></div>
+        <div class="col-lg-8 col-md-10 mx-auto">
+            <div class="col-lg-8">
+              <h1 class="heading">TPM&mdash;Fail</h1>
+            <h2 class="subheading">TPM meets Timing and Lattice Attacks</h2>
+            <div class="btn-group btn-group-vertical">
+            <a href="tpmfail.pdf" target="_blank"><button type="button" class="btn btn-primary btn-mini btn-block">
+              <i class="fas fa-download fa-1x"></i> Download Paper</button></a>
+            </br>
+              <a href="#bibtex" data-toggle="collapse" role="button" aria-expanded="true">
+                <button type="button" class="btn btn-primary btn-mini btn-block">
+                <i class="fas fa-download fa-1x"></i> Cite Paper
+              </button></a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+        </div>
+    </div>
+  </header>
+
+  <!-- Post Content -->
+  <article id="Attack">
+    <div class="container">
+      <div id="bibtex" class="container collapse in "  aria-expanded="true" style="background-color:#F8F8F8">
+          <pre style="white-space: pre">@inproceedings {244048,
+            title = {TPM-FAIL: {TPM} meets Timing and Lattice Attacks},
+            author = {Daniel Moghimi, Berk Sunar, Thomas Eisenbarth, Nadia Heninger},
+            booktitle = {29th {USENIX} Security Symposium ({USENIX} Security 20)},
+            year = {2020},
+            address = {Boston, MA},
+            url = {https://www.usenix.org/conference/usenixsecurity20/presentation/moghimi},
+            publisher = {{USENIX} Association},
+            month = aug,
+          }
+    </pre>
+      </div>
+      <div class="row">
+        <div class="col-lg-7 col-md-20 mx-auto">
+          <h2>Introduction</h2>
+             <p>
+              Trusted Platform Module (TPM) serves as a root of trust for the operating system.
+              TPM is supposed to protect our security keys from malicious adversaries like malware and rootkits.
+             </p>
+
+             <p>
+              Most laptop and desktop computers nowadays come with a dedicated TPM chip, or
+              they use the Intel firmware-based TPM (fTPM) which runs on a separate microprocessor inside the CPU.
+              Intel CPUs support fTPM since the Haswell generation (2013).
+              TPM chips are also used in other computing devices such as cellphones and embedded devices.
+              </p>
+
+              <p>
+              We discovered timing leakage on Intel firmware-based TPM (fTPM) as well as in STMicroelectronics' TPM chip.
+              Both exhibit secret-dependent execution times during cryptographic signature generation.
+              While the key should remain safely inside the TPM hardware, we show how this information allows an attacker to
+              recover 256-bit private keys from digital signature schemes based on elliptic curves.
+            </p>
+
+        </div>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <article id="Finders">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-7 col-md-20 mx-auto">
+
+          <h2 >Discovered By:</h2>
+          <ul>
+            <li><a href="http://www.moghimi.org">Daniel Moghimi</a>, <a href="http://sunar.org">Berk Sunar</a> (<a href="http://www.wpi.edu">Worcester Polytechnic Institute</a>)
+            <li><a href="https://www.its.uni-luebeck.de/mitarbeiterinnen/thomas-eisenbarth.html">Thomas Eisenbarth</a> (<a href="https://www.its.uni-luebeck.de/">University of Lübeck</a>)
+            <li><a href="https://cseweb.ucsd.edu/~nadiah/">Nadia Heninger</a> (<a href="https://ucsd.edu/">University of California San Diego</a>)
+          </ul>
+        </div>
+      </div>
+    </div>
+  </article>
+
+
+  <article id="FAQ">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-9 col-md-20 mx-auto">
+          <h2 class="section-heading">Am I affected by these vulnerabilities?</h2>
+            <p>
+              There is a high chance that you are affected.
+              This depends if any of your computing devices (laptop, tablet, desktop, etc.) use Intel fTPM or STMicroelectronics TPM chips.
+              </p>
+
+              <h2 class="section-heading">Which computing devices are affected?</h2>
+              <p>
+              Desktop, laptop and server workstations manufactured by various vendors such as Dell, Lenovo, HP, etc. may use one of these affected TPM products.
+              Please ask your OEM or consult an expert to see if your systems are affected by TPM-FAIL.
+              </p>
+              <p>The Lenovo security advisory including a list of affected devices can be found <a href="https://support.lenovo.com/us/en/product_security/len-29406">here</a>.
+
+
+              <h2 class="section-heading">What can a hacker do with this?</h2>
+              <p>
+              A hacker can use these vulnerabilities to forge digital signatures.
+              If your operating system or any of the applications on your computer use the TPM to issue such digital signatures,
+              the private signing key used for signature generation can be compromised. Compromised signing keys can be used to forge signatures for bypassing Authentication, tampering the OS, and other bad things depending on what the digital signatures are used for.
+              </p>
+
+              <h2 class="section-heading">Can I rely on security certificates to protect my customers?</h2>
+              <!--p>
+              This research shows that the answer is no.
+              The STMicroelectronics TPM chip is Common Criteria certified at EAL4+ for the TPM protection profiles and FIPS 140-2 certified at level 2.
+              However, the certification has failed to protect the product against an attack that is considered by the protection profile.
+              </p-->
+			  <p>
+			  This research shows that even rigorous testing as required by Common Criteria certification is not flawless and may miss attacks that have explicitly been checked for.
+			  The STMicroelectronics TPM chip is Common Criteria certified at EAL4+ for the TPM protection profiles and FIPS 140-2 certified at level 2, while the  Intel TPM is certified according to FIPS 140-2.
+			  However, the certification has failed to protect the product against an attack that is considered by the protection profile.</p>
+
+
+              <h2 class="section-heading">What is Common Criteria Certification?</h2>
+
+              <p>Common Criteria certification is obtained via independent evaluation and is meant to provide security assurance including resistance to physical side-channel and timing attacks.</p>
+
+              <h2 class="section-heading">How practical are these attacks?</h2>
+              They are practical. A local adversary can recover the ECDSA key from Intel fTPM in 4-20 minutes depending on the access level.
+              We even show that these attacks can be performed remotely on fast networks, by recovering the authentication key of a virtual private network (VPN) server in 5 hours.
+              </p>
+
+<!-- Too much detail!
+              <p>The ST attack assumes root privileges; this is fine since the TPM is supposed to provide security even if the OS is compromised.</p>
+              <p>The data collection on the ST TPM takes less than one and a half hours;
+              after that computing, the key takes a few seconds.
+              </p> -->
+
+<!--
+              <h2 class="section-heading">Which products use TPMs?</h2>
+              <p>Applications: Microsoft Bitlocker, trusted sensors, Chrome OS, etc.</p>
+              <p>Hardware: The vulnerable Intel fTPM is used by many PC/laptop manufacturer, e.g. including Lenovo, Dell, HP.
+                The Intel fTPM can also found in embeded devices such as Intel NUCs.
+              </p> -->
+
+              <!--
+                We can use some of this in the intro
+
+                <h2 class="section-heading">What are TPMs used for?</h2>
+              <p>Trusted Platform Module (TPM) serves as a hardware-based root of trust that protects cryptographic keys from priv- ileged system and physical adversaries. TPMs support:</p>
+              <ul>
+              <li>secure generation and binding of cryptographic keys,
+              <li>remote attestion services that allows a third party to verify that the software has not been modified,
+              <li>secure storage for credentials
+              </ul>
+              </p>  -->
+
+              <h2 class="section-heading">Is there any patch for these vulnerabilities?</h2>
+              <p>Intel upgraded their fTPM firmware to fix the reported vulnerabilities.</p>
+              <p>STMicroelectronics provided a new TPM firmware loaded on the same TPM device and we have verified that it is resistant against TPM-FAIL.</p>
+              
+
+              <h2 class="section-heading">Is there any CVE identifier for these vulnerabilities?</h2>
+              <p>Yes. <a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-11090">CVE-2019-11090</a> for Intel fTPM vulnerabilities and <a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-16863">CVE-2019-16863</a> for STMicroelectronics TPM chip.
+                </p>
+              
+
+              <h2 class="section-heading">What is a Common Vulnerability Exposure (CVE)?</h2>
+              <p><i><a href="https://cve.mitre.org/">CVE</a> is a list containing identification number, a description, and at least one public reference for publicly known cybersecurity vulnerabilities.</i>
+              It is a common practice by the security industry to assign CVE identifiers to track the status of vulnerabilities.
+              </p>
+
+
+              <h2 class="section-heading">How can I learn more about TPM-FAIL?</h2>
+              You can read the technical paper <a href="tpmfail.pdf">here</a>.
+              We are also presenting this work at the <a href="https://rwc.iacr.org/2020/contributed.html">Real World Crypto 2020, New York (January 8-10, 2020)</a> and the <a href="https://www.usenix.org/conference/usenixsecurity20/presentation/moghimi">29th USENIX Security Symposium, Boston (August 12-14, 2020)</a>.
+              
+              </br>
+              <p>
+
+              </p>
+              <!-- <p>Note that these vulnerabilities exists in a low-level firmware within the hardware.
+                In most cases, if the OEM allows you, you have to manually update the firmware. </p> -->
+
+
+              <h2 class="section-heading">Can I try TPM-FAIL?</h2>
+              <p>
+		The code along with data will be available soon at 
+		<a href="https://github.com/VernamLab/TPM-Fail">https://github.com/VernamLab/TPM-FAIL</a>
+	      </p>
+
+
+<!--
+              <p>The possibility of firmware update for the TPM depends on your OEM. Please </p>  -->
+
+          <!--
+
+
+          <h2 class="section-heading">Did you disclose your findings to Intel and ST?</h2>
+
+          <p>We informed the Intel Product Security Incident Response Team (iPSIRT) of the fTPM vulnerability on February 1, 2019.
+          Intel acknowledged receipt on the same day.
+          Intel assigned CVE-2019-11090 to record the vulnerability.</p>
+          <p>
+          We informed STMicroelectronics on May 15, 2019.
+          They acknowledged receipt on May 17, 2019. STMicroelectronics assiged CVE-2019-16863 for the vulnerability.
+          </p>
+
+          <div  class="text-center">
+            <a href="#" >
+              <img class="img-fluid" src="img/stm_chip.png" alt="Vulnerable STMicroelectronics TPM Chip">
+            </a>
+          </div>
+          <span class="caption text-muted">Vulnerable ST Chip found in a Lenovo T580 laptop.</span> -->
+
+
+          <!-- <h2 class="section-heading">Are the vulnerabilties patched?</h2>
+
+          <p>Intel upgraded their fTPM firmware to fix the vulnerability.</p>
+          <p>STMicroelectronics send us a laptop with a new TPM chip which we verified.</p>
+          <p>The leakage that enables TPM-FAIL attack is no longer present. </p> -->
+
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <hr>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <p class="copyright text-muted">Copyright &copy; TPM.fail 2019</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Custom scripts for this template -->
+  <script src="js/clean-blog.min.js"></script>
+
+</body>
+
+</html>
+
