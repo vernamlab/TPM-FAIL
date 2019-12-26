@@ -1,0 +1,17 @@
+digest         = 0xb39eaeb437e33087132f01c2abc60c6a16904ee3771cd7b0d622d01061b40729
+private key    = ???secret???
+                 52632144684755173718133203409419598877829685918145703214725332093080162041950
+                 0x745cbcfbe2b968ff6aad8e6ad678073da7a46e59701a8e4297068936ca60805eL
+
+
+PublicKey(x,y) = 0x1023188d164c47f213771318515fd54f9b510f24e03b08fa7e5cdca61546036d
+                 0x7e6806ab4b548d34ab2de3b69e55669e9f56982a0f6c0579095181fa56a6049d
+
+Commands to dump stuff in hex:
+  dump public key:    
+     openssl asn1parse -offset 23 -in ecdsa.pub.pem -dump -out ecdsa.pub.hex	 
+     xxd -seek 4 -g1 ecdsa.pub.hex	
+  digest:  
+     sha1sum data.in.raw 
+
+
